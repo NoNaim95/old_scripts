@@ -1,7 +1,0 @@
-if [[ $(cat /proc/sys/kernel/randomize_va_space) == "0" ]]; then
-    sudo sh -c "echo 2 > /proc/sys/kernel/randomize_va_space"
-    echo "ASLR is now activated"
-else
-    sudo sh -c "echo 0 > /proc/sys/kernel/randomize_va_space"
-    echo "ASLR is now deactivated"
-fi
