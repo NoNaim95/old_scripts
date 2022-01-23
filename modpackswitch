@@ -1,0 +1,32 @@
+bin/sh
+
+echo "Choose Modpack to play"
+echo
+
+declare -A map
+i=1
+for file in ./modpacks/*;
+do
+    if [[ -d $file ]]
+    then
+        modpackname="${file##*/}"
+        echo "$i| "$modpackname
+        map["$i"]=$file
+        let "i=i+1"
+    fi
+done
+
+read modpacknum
+#echo "$modpacknum - ${map["$modpacknum"]}"
+if [ -s mods/modpackname ]
+then
+    olddirname=$(cat mods/modpackname)
+else
+    echo "How do you want to name your old ModPack?"
+    read olddirname
+    echo $olddirname > mods/modpackname
+fi
+
+mv mods/ ./modpacks/$olddirname
+mv ${map["$modpacknum"]} mods/
+exit 0

@@ -1,0 +1,8 @@
+#!/bin/fish
+for i in (seq 4444 4446)
+    /home/$USER/assaultcube/bin_unix/native_client --pwd=/home/deni/assaultcube --home=/home/deni/.assaultcube_v1.2 --init &> /dev/null &
+    termite -e "fish -C '/home/deni/programming/py/ac_network/main.py $i'"&
+    dwmclient 1 (jobs -lp | tail -n +1) 1 0
+end
+termite -e "fish -c '/home/$USER/assaultcube/server.sh'"&
+dwmclient 1 (jobs -lp | tail -n +1) 1 9

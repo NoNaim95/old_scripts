@@ -1,0 +1,3 @@
+#!/bin/sh
+
+injector -p $(xpid) $1

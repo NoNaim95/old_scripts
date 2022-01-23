@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+sudo mount /dev/sdb /media/usbstick

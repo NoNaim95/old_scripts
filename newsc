@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [[ $# -eq 1 ]];then
+	file="/home/deni/scripts/$1"
+	touch "$file"
+	echo "#!/bin/sh" >> $file
+	chmod +x $file
+	vim $file
+else
+	echo "newsc [SCRIPTNAME]"
+fi
+

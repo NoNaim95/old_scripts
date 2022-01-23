@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [[ $# -eq 1 ]];then
+	emacsclient -c --socket-name=$1
+else
+	echo "not implemented yet try giving the name"
+fi
