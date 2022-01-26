@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ $# -eq 0 ]
+	then
+		sed -i "s|export PATH|path=(\"$(pwd)\" + \$path)\nexport PATH|" ~/.zshenv
+	else
+		sed -i "s|export PATH|path=(\"$1\" + \$path)\nexport PATH|" ~/.zshenv
+fi
+
+
